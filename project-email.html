@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Project Details | Rhyah Austrie Reyes</title>
+    <title>Email Triage & Routing Bot | Rhyah Austrie Reyes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -19,43 +19,47 @@
             margin-bottom: 4rem; 
             border: 1px solid rgba(0,0,0,0.05);
         }
-        .project-content h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--clr-primary); }
-        .workflow-list li { margin-bottom: 0.5rem; }
+        .project-content h3 { margin-top: 2rem; margin-bottom: 0.5rem; color: var(--clr-primary); font-size: 1.4rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;}
+        .workflow-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+        .workflow-list li { background: var(--clr-bg); padding: 1rem 1.5rem; border-radius: 8px; flex: 1 1 45%; border: 1px solid rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="light">
     <header class="header">
         <div class="header__inner">
             <div class="social-links">
-                <a href="index.html" class="link link--nav"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+                <a href="index.html#projects" class="link link--nav"><i class="fas fa-arrow-left"></i> Back to Projects</a>
             </div>
         </div>
     </header>
 
-    <main style="max-width: 800px;">
+    <main style="max-width: 900px;">
         <div class="project-header">
             <span class="badge badge--live">LIVE</span>
-            <h1>Invoice and Data Entry Auto-Fill</h1>
-            <p class="subhead">Automated pipeline intercepting Google Sheet rows and generating clean invoices.</p>
+            <h1>Email Triage & Routing Bot</h1>
+            <p class="subhead">n8n Workflow & AI Email Automation</p>
         </div>
 
         <div class="project-content">
-            <!-- Dito mo ilalagay yung screenshot mula sa n8n -->
-            <img src="assets/project1-demo.png" alt="n8n Workflow" style="width: 100%; border-radius: 12px; margin-bottom: 2rem; background: #111;">
+            <h3>Overview</h3>
+            <p>An automated inbox management system built in n8n that categorizes inbound client emails and generates context-aware draft replies to maintain communication speed outside of office hours.</p>
             
-            <h3>The Problem</h3>
-            <p>Manual transcription of session details into invoices introduces human error in dates, client names, and pricing logic.</p>
+            <h3>The Problem & Solution</h3>
+            <p><strong>Problem:</strong> High volumes of inbound client emails pile up unanswered, causing critical delays in response times for urgent requests and manual fatigue for routine inquiries.</p>
+            <p><strong>Solution:</strong> A continuous n8n workflow monitoring the inbox, filtering out spam, evaluating intent using Google Gemini AI, and either preparing an automated draft or sending an instant Slack alert for urgent issues.</p>
             
-            <h3>The Solution</h3>
-            <p>Engineered an automated pipeline that intercepts unstructured Google Sheet rows, utilizes Gemini AI to sanitize and validate formatting, and outputs pristine invoice data. Anomalies are automatically routed to a manual review queue.</p>
-            
-            <h3>Workflow Breakdown</h3>
+            <h3>Build Process</h3>
             <ul class="workflow-list">
-                <li><strong>Trigger:</strong> New row added to Google Sheets.</li>
-                <li><strong>Processing:</strong> Gemini AI node parses and cleans the data.</li>
-                <li><strong>Logic:</strong> If/Else node checks for anomalies.</li>
-                <li><strong>Output:</strong> Generates a finalized PDF invoice or flags for review.</li>
+                <li><strong>Step 1: Inbound Webhook</strong><br>Gmail node triggers on new incoming unread emails in the designated mailbox.</li>
+                <li><strong>Step 2: AI Categorization</strong><br>Gemini AI evaluates the email content to categorize it as <em>Inquiry</em>, <em>Urgent</em>, or <em>Routine</em>.</li>
+                <li><strong>Step 3: Intent Routing</strong><br>A Switch node processes the email based on the AI's determined category.</li>
+                <li><strong>Step 4: Action & Escalation</strong><br>Urgent emails trigger a Slack notification to the team. Routine emails prompt a Gmail node to create a contextual draft reply.</li>
             </ul>
+
+            <h3>Gallery</h3>
+            <p><strong>n8n Workflow Automation:</strong></p>
+            <!-- Update the image source below with your actual n8n screenshot file name -->
+            <img src="assets/email-triage-workflow.jpg" alt="Email Triage n8n Workflow" style="width: 100%; border-radius: 12px; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.05); background: #111;">
         </div>
     </main>
 </body>
