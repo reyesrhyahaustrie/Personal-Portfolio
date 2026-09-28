@@ -41,13 +41,17 @@
         </div>
 
         <div class="project-content">
+           <img src="assets/project-email-n8n-workflow.png" alt="Email Triage n8n Workflow" style="width: 100%; border-radius: 12px; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.05); background: #111;">
+        &nbsp;
             <h3>Overview</h3>
-            <p>An automated inbox management system built in n8n that categorizes inbound client emails and generates context-aware draft replies to maintain communication speed outside of office hours.</p>
+            <p>An automated inbox management system built in n8n that categorizes client emails and generates context-aware draft replies to maintain communication outside of office hours.</p>
             
-            <h3>The Problem & Solution</h3>
-            <p><strong>Problem:</strong> High volumes of inbound client emails pile up unanswered, causing critical delays in response times for urgent requests and manual fatigue for routine inquiries.</p>
-            <p><strong>Solution:</strong> A continuous n8n workflow monitoring the inbox, filtering out spam, evaluating intent using Google Gemini AI, and either preparing an automated draft or sending an instant Slack alert for urgent issues.</p>
+            <h3>The Problem</h3>
+            <p>High volumes of inbound client emails pile up unanswered, causing critical delays in response times for urgent requests and manual fatigue for routine inquiries.</p>
             
+            <h3>The Solution</h3>
+            <p>A continuous n8n workflow monitoring the inbox, filtering out spam, evaluating intent using Google Gemini AI, and either preparing an automated draft or sending an instant Slack alert for urgent issues.</p>
+
             <h3>Build Process</h3>
             <ul class="workflow-list">
                 <li><strong>Step 1: Inbound Webhook</strong><br>Gmail node triggers on new incoming unread emails in the designated mailbox.</li>
@@ -55,11 +59,6 @@
                 <li><strong>Step 3: Intent Routing</strong><br>A Switch node processes the email based on the AI's determined category.</li>
                 <li><strong>Step 4: Action & Escalation</strong><br>Urgent emails trigger a Slack notification to the team. Routine emails prompt a Gmail node to create a contextual draft reply.</li>
             </ul>
-
-            <h3>Gallery</h3>
-            <p><strong>n8n Workflow Automation:</strong></p>
-            <!-- Update the image source below with your actual n8n screenshot file name -->
-            <img src="assets/email-triage-workflow.jpg" alt="Email Triage n8n Workflow" style="width: 100%; border-radius: 12px; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.05); background: #111;">
         </div>
     </main>
 </body>
