@@ -69,7 +69,6 @@ a { text-decoration: none; color: inherit; }
 }
 .btn--plain:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 
-/* Custom Project Button */
 .btn--project {
     display: block;
     width: 100%;
@@ -106,28 +105,45 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
 .social-links { display: flex; gap: 1em; align-items: center; }
 .nav__list { display: flex; gap: 2em; margin: 0; padding: 0; align-items: center; }
 
-/* Full Page Hero Section */
+/* Hero Section */
 .about {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3em;
-    min-height: calc(100vh - 4.5em); /* Push next section out of view */
+    gap: 4em;
+    min-height: calc(100vh - 4.5em);
     padding-bottom: 4em;
 }
 .about__info { flex: 1; min-width: 300px; }
 .about__name { color: var(--clr-fg-alt); }
 
 .about__image-container {
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    width: 420px;
+    max-width: 45%;
+    border-bottom: 4px solid var(--clr-primary);
+    padding-bottom: 0;
+}
+.about__image-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    background: linear-gradient(to top, rgba(0, 102, 204, 0.12), transparent);
+    border-radius: 200px 200px 0 0;
+    z-index: -1;
 }
 .about__image-nobg {
-    width: 320px;
+    width: 100%;
     height: auto;
-    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
     display: block;
+    margin-bottom: -1px;
 }
 
 .about__desc { font-size: 1.05rem; color: var(--clr-fg); margin-top: 1.5em; }
@@ -135,9 +151,8 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
 .about__contact a:first-child .btn--outline { background-color: var(--clr-primary); color: #fff; }
 .about__contact a:first-child .btn--outline:hover { background-color: #0055b3; }
 
-/* Full Page Sections */
 .section { 
-    min-height: 85vh; /* Makes sections act like pages */
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -153,7 +168,7 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
     align-items: stretch;
 }
 
-/* Horizontal Scroll for Projects */
+/* Horizontal Scroll */
 .horizontal-scroll {
     display: flex;
     overflow-x: auto;
@@ -161,7 +176,6 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
     gap: 1.5em;
     padding-bottom: 1.5em;
     scroll-behavior: smooth;
-    /* Hide scrollbar visually but keep functionality */
     scrollbar-width: thin;
     scrollbar-color: var(--clr-primary) transparent;
 }
@@ -187,7 +201,7 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
     flex-direction: column;
 }
 .horizontal-scroll .project {
-    min-width: 320px; /* Fixed width for scrolling */
+    min-width: 320px;
     max-width: 350px;
     flex-shrink: 0;
     scroll-snap-align: start;
@@ -196,7 +210,6 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
 .project:hover, .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); }
 .project__description, .project__body p { margin: 0.5rem 0; font-size: 0.95rem; color: var(--clr-fg); }
 
-/* Badges */
 .badge { 
     display: inline-block; 
     align-self: flex-start; 
@@ -213,12 +226,11 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
 .project__stack { display: flex; flex-wrap: wrap; gap: 0.6em; margin: 1.5em 0; align-self: flex-start; }
 .project__stack-item { font-size: 0.75rem; background: #f0f4f8; color: var(--clr-fg); padding: 0.3em 0.8em; border-radius: 6px; font-weight: 500; }
 
-/* Services Specifics */
 .service-icon { font-size: 2rem; color: var(--clr-primary); margin-bottom: 1.2rem; }
 .service-card h4 { margin-bottom: 0.8rem; color: var(--clr-fg-alt); }
 .service-card p { font-size: 0.95rem; color: var(--clr-fg); }
 
-/* Timeline Experience Format */
+/* Experience Timeline */
 .subhead { text-align: center; color: var(--clr-fg); margin-bottom: 2.5em; font-size: 1.1rem; }
 .experience__timeline {
     max-width: 800px;
@@ -260,12 +272,10 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
     margin: 0;
 }
 
-/* Expanded Skills List */
 .tech-desc { text-align: center; font-weight: 600; margin: 2rem 0 1rem; color: var(--clr-fg-alt); font-size: 1.1rem; }
 .skills__list { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8em; max-width: 850px; margin: 0 auto; }
 .skills__list-item { margin: 0; padding: 0.6em 1.2em; font-size: 0.9rem; }
 
-/* Contact Banner Layout */
 .contact-banner {
     display: flex;
     align-items: center;
@@ -295,7 +305,9 @@ main { max-width: 1040px; width: 90%; margin: 0 auto; padding-bottom: 4rem; }
     .about { flex-direction: column-reverse; text-align: center; min-height: auto; margin-top: 2em; gap: 2em; padding-bottom: 2em; }
     .about__contact { justify-content: center; }
     h1 { font-size: 2.5rem; }
-    .about__image-nobg { width: 220px; margin: 0 auto; }
+    
+    .about__image-container { width: 300px; max-width: 80%; margin: 0 auto; }
+    .about__image-nobg { width: 100%; margin: 0 auto; margin-bottom: -1px; }
     
     .horizontal-scroll .project { min-width: 280px; }
     .service-card, .timeline-content { padding: 1.5em; }
